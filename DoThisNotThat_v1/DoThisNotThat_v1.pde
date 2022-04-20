@@ -5,11 +5,18 @@ float buttonX2, buttonY2, buttonWith2, buttonHeight2;
 void setup()
 {
   //Display Geometry
-  //fullScreen();//displayWidth, displayHeight
-  println(displayWidth, displayHeight);
-  int appWidth = displayWidth;
-  int appHeight = displayHeight;
-  println(displayWidth,displayHeight);
+  size(600,400);//fullScreen(); //displayWidth, displayHeight
+  println(width, height, displayWidth, displayHeight);
+  //Swap display key variab;es for tseting
+  int appWidth = width;
+  int appHeight = height;
+  //With Strings, easier to print the console or CANVAS
+  //Display Orientation: Landscape, not portrait nor square
+  String ls="Landscape or Square", p="portrait", DO="Display Orientation", instruct="Turn your phone";
+  String orientation = ( appWidth>=appHeight ) ? ls : p ; //Ternary Operator, repeats IF-ELSE to populate variables
+  println(DO, orientation);
+  if(orientation==p) println(instruct);
+  println("App Width", appWidth,"\tApp Height:",appHeight);
   //
   /*//Population
   buttonX1= ;
