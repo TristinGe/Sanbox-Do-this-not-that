@@ -4,8 +4,11 @@ float buttonX2, buttonY2, buttonWith2, buttonHeight2;
 float rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight;
 float ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter;
 float x, y, xDiameter, yDiameter;
-color black=#000000, white=#FFFFE1;//Night Mode, blur is 00 on the black, but not white
+color black=#000000, white=#FFFFE1, resetWhite=#FFFFFF;//Night Mode, blur is 00 on the black, but not white
 Boolean rectOn=false, ellipse=false;
+//
+PFont titleFont;
+String me = "Click Me", orMe="Or Me";
 //
 void setup()
 {
@@ -57,9 +60,22 @@ void setup()
 //
 void draw()
 {
+  titleFont = createFont("Arial", 50);
   background(black);
+  //
   rect( buttonX1, buttonY1, buttonWith1, buttonHeight1); //DIV: "Click Me"
+  fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(titleFont, 30);
+  text(me, buttonX1, buttonY1, buttonWith1, buttonHeight1);
+  fill(resetWhite);
+  //
   rect( buttonX2, buttonY2, buttonWith2, buttonHeight2); //DIV: "Or Me"
+  fill(black);
+  textAlign(CENTER, CENTER);
+  textFont(titleFont, 30);
+  text(orMe, buttonX2, buttonY2, buttonWith2, buttonHeight2);
+  fill(resetWhite);
   if (rectOn==true && ellipse==false) rect( rectDisplayX, rectDisplayY, rectDisplayWidth, rectDisplayHeight); //DIV: "Display Rectangle"
   //rect( ellipseX, ellipseY, ellipseXDiameter, ellipseYDiameter); //DIV: "Display Ellipse"
   if ( rectOn==false && ellipse==true)ellipse( x, y, xDiameter, yDiameter);
